@@ -1,0 +1,738 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "\"Spring Boot REST API\"",
+    "version": "1.0.0",
+    "title": "Spring Boot REST API",
+    "contact": {
+      "name": "John Thompson",
+      "url": "https://springframework.guru/about/",
+      "email": "john@springfrmework.guru"
+    },
+    "license": {
+      "name": "Apache License Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0\""
+    }
+  },
+  "host": "localhost:9090",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "credit-card-controller",
+      "description": "Credit Card Controller"
+    },
+    {
+      "name": "movement-controller",
+      "description": "Movement Controller"
+    },
+    {
+      "name": "user-controller",
+      "description": "User Controller"
+    }
+  ],
+  "paths": {
+    "/api/creditcard/": {
+      "post": {
+        "tags": [
+          "credit-card-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "expDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "franchise",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "credit-card-controller"
+        ],
+        "summary": "update",
+        "operationId": "updateUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "expDate",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "franchise",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "credit-card-controller"
+        ],
+        "summary": "deleteByToken",
+        "operationId": "deleteByTokenUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/creditcard/user/{id}": {
+      "get": {
+        "tags": [
+          "credit-card-controller"
+        ],
+        "summary": "findByUserCode",
+        "operationId": "findByUserCodeUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CreditCard"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/movement/": {
+      "post": {
+        "tags": [
+          "movement-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "movement-controller"
+        ],
+        "summary": "update",
+        "operationId": "updateUsingPUT_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "movement-controller"
+        ],
+        "summary": "delete",
+        "operationId": "deleteUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/movement/token": {
+      "get": {
+        "tags": [
+          "movement-controller"
+        ],
+        "summary": "findByToken",
+        "operationId": "findByTokenUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Movement"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/movement/user/{id}": {
+      "get": {
+        "tags": [
+          "movement-controller"
+        ],
+        "summary": "findByUserCode",
+        "operationId": "findByUserCodeUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CreditCardWithMovements"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/user/login": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "login",
+        "operationId": "loginUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "header",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "header",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreditCard": {
+      "type": "object",
+      "properties": {
+        "expDate": {
+          "type": "string"
+        },
+        "franchise": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "title": "CreditCard"
+    },
+    "CreditCardWithMovements": {
+      "type": "object",
+      "properties": {
+        "expDate": {
+          "type": "string",
+          "xml": {
+            "name": "expDate",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "franchise": {
+          "type": "string",
+          "xml": {
+            "name": "franchise",
+            "attribute": true,
+            "wrapped": false
+          },
+          "enum": [
+            "VISA",
+            "MASTERCARD",
+            "AMEX"
+          ]
+        },
+        "movements": {
+          "type": "array",
+          "xml": {
+            "name": "movements",
+            "attribute": false,
+            "wrapped": false
+          },
+          "items": {
+            "$ref": "#/definitions/Movement"
+          }
+        },
+        "number": {
+          "type": "string",
+          "xml": {
+            "name": "number",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "token": {
+          "type": "string",
+          "xml": {
+            "name": "token",
+            "attribute": true,
+            "wrapped": false
+          }
+        }
+      },
+      "title": "CreditCardWithMovements",
+      "xml": {
+        "name": "CreditCardWithMovements",
+        "attribute": false,
+        "wrapped": false
+      }
+    },
+    "Movement": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "xml": {
+            "name": "amount",
+            "attribute": true,
+            "wrapped": false
+          }
+        },
+        "date": {
+          "xml": {
+            "name": "date",
+            "attribute": true,
+            "wrapped": false
+          },
+          "$ref": "#/definitions/XMLGregorianCalendar"
+        },
+        "type": {
+          "type": "string",
+          "xml": {
+            "name": "type",
+            "attribute": true,
+            "wrapped": false
+          },
+          "enum": [
+            "PAGO",
+            "ABONO"
+          ]
+        }
+      },
+      "title": "Movement"
+    },
+    "QName": {
+      "type": "object",
+      "properties": {
+        "localPart": {
+          "type": "string"
+        },
+        "namespaceURI": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        }
+      },
+      "title": "QName"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "documentNumber": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "string",
+          "enum": [
+            "CC",
+            "CE",
+            "PASS"
+          ]
+        },
+        "fullname": {
+          "type": "string"
+        }
+      },
+      "title": "User"
+    },
+    "XMLGregorianCalendar": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "eon": {
+          "type": "integer"
+        },
+        "eonAndYear": {
+          "type": "integer"
+        },
+        "fractionalSecond": {
+          "type": "number"
+        },
+        "hour": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "millisecond": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "second": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "timezone": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "valid": {
+          "type": "boolean"
+        },
+        "xmlschemaType": {
+          "$ref": "#/definitions/QName"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "XMLGregorianCalendar"
+    }
+  }
+}
